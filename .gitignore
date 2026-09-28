@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.idea/
+.vscode/
+# Personal data & generated files: never commit resumes/CVs or vector indexes
+data/*
+!data/.keep
+*.pdf
+storage/
