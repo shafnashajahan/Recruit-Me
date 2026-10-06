@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shafnashajahan.github.io/Recruit-Me/sitemap.xml
