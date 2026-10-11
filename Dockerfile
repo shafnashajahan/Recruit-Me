@@ -9,7 +9,9 @@ WORKDIR /app
 
 # Install dependencies first so Docker caches this layer until requirements.txt changes
 COPY requirements.txt .
-RUN pip install --no-cache-dir --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip \
+ && grep -v '^-e' requirements.txt > /tmp/requirements-docker.txt \
+ && pip install --no-cache-dir -r /tmp/requirements-docker.txt
 
 COPY src ./src
 COPY app ./app
