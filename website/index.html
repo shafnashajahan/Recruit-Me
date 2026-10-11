@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recruit-Me | AI-Powered Recruitment & Career Assistant</title>
   <meta name="description" content="Recruit-Me is an AI-powered recruitment copilot for resume matching, skill-gap analysis, interview questions, and ATS-friendly CV generation.">
-  <meta name="keywords" content="AI recruitment, resume matcher, ATS CV builder, job matching, RAG, NLP, Python, Streamlit">
+  <meta name="keywords" content="AI recruitment, resume matcher, ATS CV builder, job matching, FAISS, NLP, Python, Streamlit">
   <meta name="author" content="Shafna Shajahan">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://shafnashajahan.github.io/Recruit-Me/">
@@ -13,6 +13,10 @@
   <meta property="og:description" content="Analyze resumes, match candidates to jobs, identify skill gaps, and generate interview questions.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shafnashajahan.github.io/Recruit-Me/">
+  <meta property="og:image" content="https://shafnashajahan.github.io/Recruit-Me/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="assets/style.css">
   <script type="application/ld+json">
   {
@@ -35,6 +39,7 @@
     <a href="#workflow">How it works</a>
     <a href="#tech">Tech</a>
     <a href="#about">About</a>
+    <a href="https://recruit-me-bly9gn7mn3csycwhsu5cty.streamlit.app/" target="_blank" rel="noopener">Live demo</a>
   </nav>
   <a class="nav-btn" href="https://github.com/shafnashajahan/Recruit-Me" target="_blank" rel="noopener">GitHub ↗</a>
 </header>
@@ -46,11 +51,13 @@
     <h1>Hire smarter.<br><em>Build better careers.</em></h1>
     <p class="lead">Recruit-Me analyzes resumes against job descriptions, identifies skill gaps, generates interview questions, and creates tailored ATS-friendly CVs.</p>
     <div class="actions">
-      <a class="btn primary" href="https://github.com/shafnashajahan/Recruit-Me" target="_blank" rel="noopener">View on GitHub ↗</a>
+      <a class="btn primary" href="https://recruit-me-bly9gn7mn3csycwhsu5cty.streamlit.app/" target="_blank" rel="noopener">Try live demo ↗</a>
+      <a class="btn secondary" href="https://github.com/shafnashajahan/Recruit-Me" target="_blank" rel="noopener">View on GitHub ↗</a>
       <a class="btn secondary" href="#features">Explore features</a>
     </div>
+    <p style="font-size:.9rem;opacity:.75;margin-top:14px">The live demo runs resume matching. AI interview questions and CV generation need a local Ollama model, so they are shown in the demo video. Please use sample data only, not real resumes.</p>
     <div class="trust">
-      <span>Python</span><span>RAG</span><span>FAISS</span><span>Ollama</span><span>Streamlit</span>
+      <span>Python</span><span>LangChain</span><span>FAISS</span><span>Ollama</span><span>Streamlit</span>
     </div>
   </div>
   <div class="hero-card">
@@ -65,14 +72,14 @@
     <div class="skill"><span>Kubernetes</span><i class="missing">Missing</i></div>
     <div class="skill"><span>Docker</span><i class="good">Matched</i></div>
     <div class="bars"><b style="width:86%"></b></div>
-    <p class="card-note">AI-assisted candidate analysis</p>
+    <p class="card-note">Sample output (illustrative)</p>
   </div>
 </section>
 
 <section class="stats">
   <div><strong>2</strong><span>Product modes</span></div>
   <div><strong>PDF</strong><span>Resume input</span></div>
-  <div><strong>RAG</strong><span>Semantic search</span></div>
+  <div><strong>FAISS</strong><span>Vector index</span></div>
   <div><strong>ATS</strong><span>CV generation</span></div>
 </section>
 
@@ -83,7 +90,7 @@
     <article class="feature"><div class="icon">02</div><h3>Skill Gap Detection</h3><p>See which skills are already present and which job requirements are missing from a candidate profile.</p></article>
     <article class="feature"><div class="icon">03</div><h3>AI Interview Questions</h3><p>Generate technical, project, and behavioural interview questions from the candidate and role context.</p></article>
     <article class="feature"><div class="icon">04</div><h3>ATS-Friendly CV Builder</h3><p>Enter candidate details and a target job description to create a tailored CV and download it as a PDF.</p></article>
-    <article class="feature"><div class="icon">05</div><h3>RAG & Semantic Search</h3><p>Resume and job text can be embedded into a FAISS vector index to support future retrieval and ranking features.</p></article>
+    <article class="feature"><div class="icon">05</div><h3>Vector Index (FAISS)</h3><p>Resume and job text can be embedded into a FAISS vector index to support future retrieval and ranking features.</p></article>
     <article class="feature"><div class="icon">06</div><h3>Privacy by Design</h3><p>The project is designed around temporary resume processing, with uploaded PDF data excluded from version control.</p></article>
   </div>
 </section>
@@ -104,7 +111,7 @@
 <section id="tech" class="section">
   <div class="section-head"><div><p class="kicker">ENGINEERING</p><h2>Built as a real<br>AI application.</h2></div><p>The codebase separates the UI, business logic, LLM integration, retrieval, testing, and deployment configuration.</p></div>
   <div class="architecture">
-    <div class="arch-node">Streamlit UI</div><span>→</span><div class="arch-node">Recruit-Me Package</div><span>→</span><div class="arch-node">LLM + RAG</div>
+    <div class="arch-node">Streamlit UI</div><span>→</span><div class="arch-node">Recruit-Me Package</div><span>→</span><div class="arch-node">LLM + FAISS</div>
   </div>
   <div class="tech-list">
     <span>Python 3.10+</span><span>Streamlit</span><span>LangChain</span><span>Ollama</span><span>FAISS</span><span>ReportLab</span><span>Pytest</span><span>Docker</span><span>GitHub Actions</span>
